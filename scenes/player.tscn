@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0xr0pvvneurv"]
+[gd_scene load_steps=24 format=3 uid="uid://c0xr0pvvneurv"]
 
 [ext_resource type="Texture2D" uid="uid://c5s6h0ny56b8p" path="res://assets/character/character_10.png" id="1_qnap0"]
 [ext_resource type="Texture2D" uid="uid://dreujkuenpecb" path="res://assets/character/character_11.png" id="2_rq7uu"]
@@ -137,8 +137,15 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Player" type="AnimatedSprite2D"]
-position = Vector2(23, 21)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkvyv"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("21_ibllr")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_07yqh")
 animation = &"walking_down"
-script = ExtResource("21_ibllr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pkvyv")
